@@ -6,6 +6,10 @@ class CartedItem < ApplicationRecord
   validates :status, presence: true
 
   def subtotal
-    product.price * quantity
+    menu_item.price * quantity
+  end
+
+  def cart
+    carted_items.where(status: 'carted')
   end
 end

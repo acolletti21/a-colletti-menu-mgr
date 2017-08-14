@@ -1,1 +1,13 @@
-index.html.erb
+<h1>Menu</h1>
+
+
+<% @products.each do |product| %>
+  <div class="col-md-4">
+    <div class="well">
+      <h2>Name: <a href="menu_items/<%= menu_item.id %>"><%= menu_item.name %></a></h2>
+      <p>Price: <%= number_to_currency(menu_item.price) %></p>
+      <h5>Description: <%= menu_item.description %></h5>
+      <h4><%= menu_item.category %></h4>
+    </div>
+  </div>
+<% end %>
