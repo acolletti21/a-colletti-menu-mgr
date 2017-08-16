@@ -1,27 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    sort_attribute = params[:sort]
-    sort_order = params[:sort_order]
-    search_term = params[:search_term]
-    category_type = params[:category]
-
-    if search_term
-      @products = @products.where("name iLIKE ? OR description iLIKE ?",
-                            "%#{search_term}%",
-                            "%#{search_term}%")
-    end
-
-    if category_type
-      # category = MenuItem.find_by(category: category_type)
-      @menu_items = @menu_items.where("category LIKE (?)", "%#{category_type}%")
-    end 
-
-    if sort_attribute && sort_order
-      @menu_items = @menu_items.order(sort_attribute => sort_order)
-    elsif sort_attribute
-      @menu_items = @menu_items.order(sort_attribute)
-    end  
+    @category_array = MenuItem.select(:category).group(:category)
   end
 
 

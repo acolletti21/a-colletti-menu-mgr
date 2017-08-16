@@ -10,6 +10,13 @@
   </head>
 
 
+  <script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flash').remove();
+    }, 5000);
+   })
+  </script>
 
   <body>
     <nav class="navbar navbar-inverse">
@@ -38,8 +45,8 @@
             <li class="dropdown">
               <li><a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Menu<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><a href="/signup">Sign Up</a></li>
-                  <li><a href="/login">Log In</a></li>
+                  <li><a href="/menu_items/new">Create New Item</a></li>
+                  <li><a href="/carted_items">View Cart</a></li>
               </ul>
             </li>
           </ul>
@@ -51,13 +58,12 @@
 
     <div class="container">
       <% flash.each do |name, message| %>
-        <div class="alert alert-<%=name%> alert-dismissible" role="alert">
+        <div id="flash" class="alert alert-<%=name%> alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong><%= name.upcase %></strong> <%=message%>
        </div>
       <%end%>
     </div>
-
 
     <%= yield %>
   </body>

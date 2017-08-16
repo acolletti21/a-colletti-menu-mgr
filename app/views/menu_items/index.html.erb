@@ -11,3 +11,8 @@
     </div>
   </div>
 <% end %>
+
+<% @category_array.each do |x| %>
+    <p><%= x[:category] %></p>
+<% end %>
+
