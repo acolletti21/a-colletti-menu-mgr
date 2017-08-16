@@ -18,7 +18,7 @@ class MenuItemsController < ApplicationController
                             )
     if @menu_item.save
       flash[:success] = "Menu Item Successfully Created"
-      redirect_to "/menu_items/#{@product.id}"
+      redirect_to "/menu_items/#{@menu_item.id}"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class MenuItemsController < ApplicationController
   def show
     if params[:id] == "random"
       menu_item = MenuItem.all.sample
-      redirect_to "/products/#{product.id}"
+      redirect_to "/menu_items/#{menu_item.id}"
     else 
       @menu_item = MenuItem.find(params[:id])
     end
