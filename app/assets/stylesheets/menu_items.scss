@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .menu-item{
-  min-height: 255px;
-  margin: 5%;
+  margin: 1%;
+  padding: 1%;
+  background: rgba(115, 218, 244, 0.2);
+  border-radius: 5px;
+  // opacity: .5;
+}
+
+.description{
+  padding: 1%;
+  font-size: 1.2em;
+}
+
+.show-well{
+  margin-top: 5%;
+  padding: 2%
+}
+
+div.show-well h3{
+  display: inline;
+  float: right;
 }

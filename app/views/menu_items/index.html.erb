@@ -1,18 +1,30 @@
-<h1>Menu</h1>
 
 
-<% @menu_items.each do |menu_item| %>
-  <div class="col-md-4">
-    <div class="well menu-item">
-      <h2><a href="menu_items/<%= menu_item.id %>"><%= menu_item.name %></a></h2>
-      <p><%= number_to_currency(menu_item.price) %></p>
-      <h5><%= menu_item.description %></h5>
-      <h4><%= menu_item.category %></h4>
+
+<div class="container">
+  <h1 style="text-align: center">Menu</h1>
+  <% @menu_items.each do |item| %>
+    <div class="row">
+      <div class="col-sm-12 menu-item">
+        <div class="col-sm-3">
+          <h2><a href="menu_items/<%= item.id %>"><%= item.name %></a></h2>
+        </div>
+      
+        <div class="col-sm-7 description">
+          <h4><%= item.category %></h4>
+          <p><%= item.description %></p>
+        </div>
+      
+        <div class="col-sm-2 description">
+          <h4><%= number_to_currency(item.price) %></h4>
+            <%= form_tag "/carted_items", method: :post do%>
+              <%= label_tag :quantity, "qty" %>
+              <%= text_field_tag :quantity, "", size: "3" %>
+              <%= hidden_field_tag :item_id, item.id %>
+            <%= submit_tag "Add to Cart", class: "btn btn-default" %>
+          <%end%>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<% @category_array.each do |x| %>
-    <p><%= x[:category] %></p>
-<% end %>
-
+  <% end %>
+</div>

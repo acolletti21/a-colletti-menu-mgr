@@ -1,5 +1,5 @@
 class CartedItem < ApplicationRecord
-  belongs_to :menu_item
+  belongs_to :menu_item, optional: true
 
   validates :quantity, presence: true
   validates :quantity, numericality: {only_integer: true, greater_than: 0}
@@ -9,7 +9,10 @@ class CartedItem < ApplicationRecord
     menu_item.price * quantity
   end
 
-  def cart
-    carted_items.where(status: 'carted')
+  def cart_total
+    total = 0
+    cart.each do |item|
+      total += item.quantity
+    end
   end
 end

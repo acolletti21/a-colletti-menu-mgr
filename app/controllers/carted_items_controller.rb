@@ -1,6 +1,6 @@
 class CartedItemsController < ApplicationController
   def index
-    @carted_items = CartedItem.where(status: "carted") 
+    @carted_items = CartedItem.all.where(status: "carted") 
     if @carted_items.any?
       @carted_items = @carted_items
     else
@@ -11,10 +11,11 @@ class CartedItemsController < ApplicationController
 
   def create
     @carted_item = CartedItem.new(
+                                item_id: params[:item_id],
                                 quantity: params[:quantity],
                                 status: "carted"
                                 )
-    if @carted_item.save
+    if @carted_item.save!
       redirect_to "/carted_items"
     else
       flash[:warning] = "Please Enter a Quantity"
@@ -26,7 +27,7 @@ class CartedItemsController < ApplicationController
   def destroy
     carted_item = CartedItem.find(params[:id]) 
     carted_item.update(status: 'removed')
-    flash[:success] = 'Product removed from cart'
+    flash[:success] = 'Item removed from cart'
     redirect_to '/carted_items'
   end
 end
