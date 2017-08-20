@@ -8,15 +8,11 @@ class MenuItemsController < ApplicationController
 
   def new
     @menu_item = MenuItem.new
+    @menu_item.build_menu_item_category
   end
 
   def create
-    @menu_item = MenuItem.new(
-                            name: params[:name],
-                            price: params[:price],
-                            category: params[:category],
-                            description: params[:description]
-                            )
+    @menu_item = MenuItem.new(menu_item_params)
     if @menu_item.save
       flash[:success] = "Menu Item Successfully Created"
       redirect_to "/menu_items/#{@menu_item.id}"
@@ -43,8 +39,7 @@ class MenuItemsController < ApplicationController
     @menu_item.assign_attributes(
                             name: params[:name],
                             price: params[:price],
-                            description: params[:description],
-                            category: params[:category]
+                            description: params[:description]
                             )
     if @menu_item.save
       flash[:success] = "Menu Item Successfully Updated"
@@ -57,8 +52,16 @@ class MenuItemsController < ApplicationController
   def destroy
     @menu_item = MenuItem.find(params[:id])
     @menu_item.destroy
-    redirect_to "/menu_items"
+    redirect_to "/"
     flash[:warning] = "Menu Item has been destroyed"
     redirect_to = "/"
   end
+
+  private
+    def menu_item_params
+      params.require(:menu_item).permit(
+        :name, :price, :description,
+        menu_item_category_attributes: [:menu_item_id, :category_id] 
+        )
+    end
 end

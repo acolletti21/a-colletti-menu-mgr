@@ -7,8 +7,8 @@
     <%= form_tag "/carted_items", method: :post do%>
       <span>
         <%= label_tag :quantity %>
-        <%= text_field_tag :quantity%>
-        <%= hidden_field_tag :item_id, @menu_item.id %>
+        <%= text_field_tag :quantity %>
+        <%= hidden_field_tag :menu_item_id, @menu_item.id %>
       </span>
       <span><%= submit_tag "Add to Cart", class: "btn btn-default" %></span>
     <%end%>
