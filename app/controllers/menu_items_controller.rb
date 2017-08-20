@@ -1,6 +1,8 @@
 class MenuItemsController < ApplicationController
   def index
-    @menu_items = MenuItem.all.order(category: :desc, price: :asc)
+    @menu_items = MenuItem.all
+    # .order(category: :desc, price: :asc)
+    @categories = Category.all
   end
 
 

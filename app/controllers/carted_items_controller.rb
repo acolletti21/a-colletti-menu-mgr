@@ -11,7 +11,7 @@ class CartedItemsController < ApplicationController
 
   def create
     @carted_item = CartedItem.new(
-                                item_id: params[:item_id],
+                                menu_item_id: params[:menu_item_id],
                                 quantity: params[:quantity],
                                 status: "carted"
                                 )

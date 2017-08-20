@@ -1,13 +1,12 @@
 class MenuItem < ApplicationRecord
   has_many :carted_items
+  has_many :menu_item_categories
+  has_many :categories, through: :menu_item_categories
 
-  # validates :name, presence: true
-  # validates :price, presence: true
-  # validates :description, presence: true
-  before_save :capitalize
+  # before_save :capitalize
 
-  def capitalize
-    self.category = self.category.titlecase
-    self.name = self.name.titlecase
-  end
+  # def capitalize
+  #   self.category = self.category.titlecase
+  #   self.name = self.name.titlecase
+  # end
 end
