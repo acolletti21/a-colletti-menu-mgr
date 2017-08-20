@@ -1,0 +1,24 @@
+    <%= form_for(@menu_item, url: "/menu_items/#{@menu_item.id}") do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, value: @menu_item.name, class: "form-control" %>
+      </div>
+
+      <div cfass="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price, value: @menu_item.price, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description  %>
+        <%= f.text_area :description, size: "25x4", value: @menu_item.description, class: "form-control" %>
+      </div>
+
+      <%= f.fields_for :menu_item_category do |f| %>
+      <div class="form-group">
+        <%= f.collection_select :category_id, Category.all, :id, :name, selected: @menu_item.menu_item_category %>
+        <%= hidden_field_tag :menu_item_id, @menu_item.id %>
+      </div>
+    <% end %>
+    <input type="submit" value="Update Item">
+    <% end %>

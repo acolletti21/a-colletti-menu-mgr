@@ -1,1 +1,14 @@
-edit.html.erb
+
+ <div class="col-md-8 col-sm-offset-2">
+  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.85"> 
+    <% @menu_item.errors.full_messages.each do |error| %> 
+      <h2><%= error%></h2>
+    <%end%>
+
+    <h2>Edit Item</h2>
+
+      <%= render 'form' %>
+
+      <br>
+  </div>
+</div>

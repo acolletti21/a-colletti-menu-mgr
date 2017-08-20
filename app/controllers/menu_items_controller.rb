@@ -17,7 +17,8 @@ class MenuItemsController < ApplicationController
       flash[:success] = "Menu Item Successfully Created"
       redirect_to "/menu_items/#{@menu_item.id}"
     else
-      render :new
+      flash[:warning] = "Item failed to save, please try again."
+      redirect_to "/"
     end
   end
 
@@ -36,16 +37,14 @@ class MenuItemsController < ApplicationController
 
   def update
     @menu_item = MenuItem.find(params[:id])
-    @menu_item.assign_attributes(
-                            name: params[:name],
-                            price: params[:price],
-                            description: params[:description]
-                            )
+    @menu_item.menu_item_category.destroy
+    @menu_item.update!(menu_item_params)
     if @menu_item.save
-      flash[:success] = "Menu Item Successfully Updated"
+      flash[:success] = "Menu Item Successfully Created"
       redirect_to "/menu_items/#{@menu_item.id}"
     else
-      render :edit
+      flash[:warning] = "Item failed to save, please try again."
+      redirect_to "/"
     end
   end
 
