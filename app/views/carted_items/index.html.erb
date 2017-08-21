@@ -3,7 +3,7 @@
     <h2 style="text-align: center">Checkout</h2>
   </div>
   <% @carted_items.each do |carted_item| %>
-    <div class="col-sm-8 well col-sm-offset-2 show-well">
+    <div class="col-sm-8 col-sm-offset-2 show-well">
       <h3><%= carted_item.menu_item.name %></h3>
       <h3>Total: <%= number_to_currency(carted_item.menu_item.price) %> x <%= carted_item.quantity %></h3>
       <%= form_tag "/carted_items/#{carted_item.id}", method: :delete do%>

@@ -1,36 +1,39 @@
-<div class="col-md-8 col-sm-offset-2">
-  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.85"> 
-    <% @menu_item.errors.full_messages.each do |error| %> 
-      <h2><%= error%></h2>
-    <%end%>
+<div class="container">
+  <div class="col-md-8 col-sm-offset-2 show-well">
+      <% @menu_item.errors.full_messages.each do |error| %> 
+        <h2><%= error%></h2>
+      <%end%>
 
-    <h2>Add a new item to the menu</h2>
+      <h2 style="text-align: center">Add a new item to the menu</h2>
+    </div>
 
-    <%= form_for @menu_item do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %>
-      </div>
+    <div class="col-sm-8 col-sm-offset-2 show-well">
+      <%= form_for @menu_item do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
 
-      <div cfass="form-group">
-        <%= f.label :price %>
-        <%= f.text_field :price, class: "form-control" %>
-      </div>
+        <div cfass="form-group">
+          <%= f.label :price %>
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :description  %>
-        <%= f.text_area :description, size: "25x4", class: "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= f.label :description  %>
+          <%= f.text_area :description, size: "25x4", class: "form-control" %>
+        </div>
 
-      <%= f.fields_for :menu_item_category do |f| %>
-      <div class="form-group">
-        <%= f.collection_select :category_id, Category.all, :id, :name %>
-        <%= hidden_field_tag :menu_item_id, @menu_item.id %>
-      </div>
-    <% end %>
-      
-      <br>
-      <input type="submit" value="Add Item">
-    <% end %>
+        <%= f.fields_for :menu_item_category do |f| %>
+        <div class="form-group">
+          <%= f.collection_select :category_id, Category.all, :id, :name %>
+          <%= hidden_field_tag :menu_item_id, @menu_item.id %>
+        </div>
+      <% end %>
+     </div>   
+        <br>
+        <input type="submit" value="Add Item">
+      <% end %>
+    </div>
   </div>
 </div>
