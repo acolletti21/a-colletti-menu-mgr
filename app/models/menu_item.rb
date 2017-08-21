@@ -10,4 +10,16 @@ class MenuItem < ApplicationRecord
   #   self.category = self.category.titlecase
   #   self.name = self.name.titlecase
   # end
+  def lucky_order(min, max)
+    order = Array.new
+    total = 0
+    until total > min && total < max
+      rand_item = MenuItem.all.sample
+      if (rand_item[:price] + total) < max
+        # rand_item[:status] = 'carted'
+        total += rand_item["price"]
+      end
+    end
+    return total
+  end
 end
