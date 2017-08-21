@@ -1,17 +1,19 @@
-  <div class="col-sm-6 col-sm-offset-4">
-    <h2>Checkout</h2>
+<div class="container">
+  <div class="col-sm-8 col-sm-offset-2 show-well">
+    <h2 style="text-align: center">Checkout</h2>
   </div>
-
   <% @carted_items.each do |carted_item| %>
-    <div class="col-sm-6 col-sm-offset-4">
+    <div class="col-sm-8 well col-sm-offset-2 show-well">
       <h3><%= carted_item.menu_item.name %></h3>
       <h3>Total: <%= number_to_currency(carted_item.menu_item.price) %> x <%= carted_item.quantity %></h3>
       <%= form_tag "/carted_items/#{carted_item.id}", method: :delete do%>
-      <%= submit_tag "Remove From Cart", class: "btn btn-danger" %>
+      <%= submit_tag "Remove", class: "btn btn-danger" %>
       <% end %>
     </div>
   <% end %>
   
-  <div class="col-sm-6 col-sm-offset-4">
+  <div class="col-sm-8 col-sm-offset-2" style="text-align: right">
+    <p><%= @cart_total %></p>
     <%= link_to "Buy Now", "/orders", method: :post, class: "btn btn-default"%>
   </div>
+</div>

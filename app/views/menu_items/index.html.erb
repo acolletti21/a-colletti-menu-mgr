@@ -7,20 +7,20 @@
     <% category.menu_items.each do |item| %>
       <div class="row">
         <div class="col-sm-12 menu-item">
-          <div class="col-sm-3">
+          <div class="col-sm-3 name">
             <h2><a href="menu_items/<%= item.id %>"><%= item.name %></a></h2>
           </div>
         
           <div class="col-sm-7 description">
-            <p><%= item.description %></p>
+            <p><i><%= item.description %></i></p>
           </div>
         
-          <div class="col-sm-2 description">
+          <div class="col-sm-2">
             <h4><%= number_to_currency(item.price) %></h4>
               <%= form_tag "/carted_items", method: :post do%>
                 <%= label_tag :quantity, "qty" %>
                 <%= text_field_tag :quantity, "", size: "3" %>
-                <%= hidden_field_tag :item_id, item.id %>
+                <%= hidden_field_tag :menu_item_id, item.id %>
               <%= submit_tag "Add to Cart", class: "btn btn-default" %>
             <% end %>
           </div>

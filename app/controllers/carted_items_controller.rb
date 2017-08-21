@@ -9,13 +9,24 @@ class CartedItemsController < ApplicationController
     end
   end
 
+  def show
+    @carted_items = CartedItem.all.where(status: "carted") 
+    if params[:id] == "random"
+      @carted_items.destroy_all
+      menu_item = MenuItem.all.sample
+      redirect_to "/carted_items"
+    else 
+    redirect_to '/carted_items'
+    end
+  end
+
   def create
     @carted_item = CartedItem.new(
                                 menu_item_id: params[:menu_item_id],
                                 quantity: params[:quantity],
                                 status: "carted"
                                 )
-    if @carted_item.save!
+    if @carted_item.save
       redirect_to "/carted_items"
     else
       flash[:warning] = "Please Enter a Quantity"

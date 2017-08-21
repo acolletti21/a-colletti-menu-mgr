@@ -4,18 +4,22 @@
 .menu-item{
   margin: 1%;
   padding: 1%;
-  background: rgba(115, 218, 244, 0.2);
+  background: rgba(227, 248, 253, 0.9);
   border-radius: 5px;
   // opacity: .5;
 }
 
 .description{
-  padding: 1%;
-  font-size: 1.2em;
+  padding-top: 2%;
+  font-size: 1.3em;
+}
+
+.name{
+  padding-top: .5%;
 }
 
 .show-well{
-  margin-top: 5%;
+  margin-top: 2%;
   padding: 2%
 }
 
@@ -23,3 +27,21 @@ div.show-well h3{
   display: inline;
   float: right;
 }
+
+.navbar-default {
+    background:transparent;
+    border: transparent;
+    min-height: 40px;
+}
+
+.container{
+  margin-top: 50px;
+}
+
+.star-bg{
+  background-image: image-url('/img/stars.svg'); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
