@@ -3,12 +3,12 @@
 <div class="container">
   <h1 style="text-align: center">Menu</h1>
   <% @categories.each do |category| %>
-    <h2><%= category.name %></h2>
+    <h2 class="category"><%= category.name.upcase %></h2>
     <% category.menu_items.each do |item| %>
       <div class="row">
         <div class="col-sm-12 menu-item">
           <div class="col-sm-3 name">
-            <h2><a href="menu_items/<%= item.id %>"><%= item.name %></a></h2>
+            <a href="menu_items/<%= item.id %>"><%= item.name %></a>
           </div>
         
           <div class="col-sm-7 description">
@@ -21,7 +21,7 @@
                 <%= label_tag :quantity, "qty" %>
                 <%= text_field_tag :quantity, "", size: "3" %>
                 <%= hidden_field_tag :menu_item_id, item.id %>
-              <%= submit_tag "Add to Cart", class: "btn btn-default" %>
+              <%= submit_tag "Add to Cart", class: "btn btn-default see-thru" %>
             <% end %>
           </div>
         </div>

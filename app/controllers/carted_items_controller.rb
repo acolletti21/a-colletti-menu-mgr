@@ -10,13 +10,12 @@ class CartedItemsController < ApplicationController
   end
 
   def show
-    @carted_items = CartedItem.all.where(status: "carted") 
     if params[:id] == "random"
-      @carted_items.destroy_all
       menu_item = MenuItem.all.sample
+      menu_item.lucky_order(7,15)
       redirect_to "/carted_items"
     else 
-    redirect_to '/carted_items'
+      redirect_to '/carted_items'
     end
   end
 
@@ -34,6 +33,17 @@ class CartedItemsController < ApplicationController
     end
   end
 
+  def update
+    @carted_item = CartedItem.find(params[:id])
+    @carted_item.update!(params[:quantity])
+    if @carted_item.save
+      flash[:success] = "Quantity Successfully Updated."
+      redirect_to "/carted_items"
+    else
+      flash[:warning] = "Item failed to update, please try again."
+      redirect_to "/"
+    end
+  end
 
   def destroy
     carted_item = CartedItem.find(params[:id]) 

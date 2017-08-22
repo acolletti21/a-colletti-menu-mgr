@@ -1,28 +1,29 @@
-<div class="col-sm-6 well col-sm-offset-3 show-well">
-  <h2 style="display: inline;"><%= @menu_item.name %></h2>
-  <h3 style="float: right"><%= number_to_currency(@menu_item.price) %></h3>
-  <h4><%= @menu_item.description %></h4>
-  
-  <div class="col-sm-8">  
-    <%= form_tag "/carted_items", method: :post do%>
-      <span>
-        <%= label_tag :quantity %>
-        <%= text_field_tag :quantity %>
-        <%= hidden_field_tag :menu_item_id, @menu_item.id %>
-      </span>
-      <span><%= submit_tag "Add to Cart", class: "btn btn-default" %></span>
-    <%end%>
-  </div>
+<div class="container">
+  <div class="col-md-8 col-sm-offset-2" style="margin-top: 10%">
+    <h2 style="display: inline; color:white"><%= @menu_item.name %></h2>
+    <h3 style="float: right"><%= number_to_currency(@menu_item.price) %></h3>
+    <p class="description"><%= @menu_item.description %></p>
+    
+    <div class="col-sm-8">  
+      <%= form_tag "/carted_items", method: :post do%>
+        <span>
+          <%= label_tag :quantity %>
+          <%= text_field_tag :quantity %>
+          <%= hidden_field_tag :menu_item_id, @menu_item.id %>
+        </span>
+        <span><%= submit_tag "Add to Cart", class: "btn btn-default" %></span>
+      <%end%>
+    </div>
 
-  <div class="col-sm-2">
-    <span>
-      <a class="btn btn-info" href="/menu_items/<%= @menu_item.id %>/edit">Edit Item Info</a>
-    </span>
-  </div>
-  <div class="col-sm-2">
-    <%= form_tag "/menu_items/#{@menu_item.id}", method: :delete do %>
-      <input class="btn btn-danger" type="submit" value="Delete Item">
-    <% end %>
+    <div class="col-sm-2">
+      <span>
+        <a class="btn btn-info" href="/menu_items/<%= @menu_item.id %>/edit">Edit Item Info</a>
+      </span>
+    </div>
+    <div class="col-sm-2">
+      <%= form_tag "/menu_items/#{@menu_item.id}", method: :delete do %>
+        <input class="btn btn-danger" type="submit" value="Delete Item">
+      <% end %>
+    </div>
   </div>
 </div>
-<%= @menu_item.lucky_order(4,10) %>

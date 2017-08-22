@@ -40,7 +40,7 @@ class MenuItemsController < ApplicationController
     @menu_item.menu_item_category.destroy
     @menu_item.update!(menu_item_params)
     if @menu_item.save
-      flash[:success] = "Menu Item Successfully Created"
+      flash[:success] = "Menu Item Successfully Edited"
       redirect_to "/menu_items/#{@menu_item.id}"
     else
       flash[:warning] = "Item failed to save, please try again."
