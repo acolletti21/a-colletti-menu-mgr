@@ -11,8 +11,10 @@ class CartedItem < ApplicationRecord
 
   def cart_total
     total = 0
-    cart.each do |item|
-      total += item.quantity
+    carted_item = CartedItem.where(status: "carted")
+    carted_item.each do |item|
+      total += (item.menu_item.price * item.quantity)
     end
+    subs = self.subtotal.all
   end
 end

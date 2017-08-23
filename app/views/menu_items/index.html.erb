@@ -28,4 +28,11 @@
       </div>
     <% end %>
   <% end %>
+  <div class="col-sm-12 col-lg-6">
+    <%= form_tag "/carted_items/random", method: :get do %>
+      <%= text_field_tag :min, nil, class: "col-md-3 col-md-offset-1", placeholder: "minimum" %>
+      <%= text_field_tag :max, nil, class: "col-md-3 col-md-offset-1", placeholder: "maximum" %>
+      <%= submit_tag "Go", class: "col-md-3" %>
+    <% end %>
+  </div>
 </div>

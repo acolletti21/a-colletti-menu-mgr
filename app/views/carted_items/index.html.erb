@@ -13,7 +13,8 @@
   <% end %>
   
   <div class="col-sm-8 col-sm-offset-2" style="text-align: right">
-    <p><%= @cart_total %></p>
+    <h2>Total: <span id="cart"><%= number_to_currency(@total) %></span></h2>
+    <button onclick="calculateTip()">test</button>
     <%= link_to "Buy Now", "/orders", method: :patch, class: "btn btn-default"%>
   </div>
 </div>

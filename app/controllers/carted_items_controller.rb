@@ -3,6 +3,7 @@ class CartedItemsController < ApplicationController
     @carted_items = CartedItem.all.where(status: "carted") 
     if @carted_items.any?
       @carted_items = @carted_items
+      @total = @carted_items.sum {|n| n.menu_item.price * n.quantity }
     else
       flash[:warning] = "Your shopping cart is empty."
       redirect_to '/'
