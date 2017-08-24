@@ -36,6 +36,14 @@ h1, h3, h4, a, label {
   text-shadow: 2px 2px #000;
 }
 
+.randomize {
+  overflow: auto; 
+  margin-top: 5%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .show-well{
   margin-top: 2%;
   padding: 2%
