@@ -1,7 +1,8 @@
-
 function calculateTip() {
-  var cartSubtotal = document.getElementById("cart").innerHTML;
-  var tip = document.getElementById("tip");
-  var totalAndTip = cartSubtotal + tip;
-  console.log(cartSubtotal)
+  var tip = document.getElementById("tip").value;
+  var cart = document.getElementById("cart").innerHTML;
+  var cartAmt = Number(cart);
+  var onlyTip = (cartAmt * tip);
+  var totalAndTip = cartAmt + onlyTip;
+  document.getElementById("showTotal").innerHTML = "$" + totalAndTip.toFixed(2);
 }

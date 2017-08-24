@@ -4,17 +4,38 @@
   </div>
   <% @carted_items.each do |carted_item| %>
     <div class="col-sm-8 col-sm-offset-2 show-well">
-      <h3><%= carted_item.menu_item.name %></h3>
-      <h3>Total: <%= number_to_currency(carted_item.menu_item.price) %> x <%= carted_item.quantity %></h3>
-      <%= form_tag "/carted_items/#{carted_item.id}", method: :delete do%>
-      <%= submit_tag "Remove", class: "btn btn-danger" %>
-      <% end %>
+      <div class="col-sm-2">      
+        <%= form_tag "/carted_items/#{carted_item.id}", method: :delete do %>
+          <%= submit_tag "Remove", class: "btn btn-danger", style: "display: inline" %>
+        <% end %>
+      </div>
+      <div class="col-sm-8">
+        <h3><%= carted_item.menu_item.name %></h3>
+        <h3>Total: <%= number_to_currency(carted_item.menu_item.price) %> x <%= carted_item.quantity %></h3>      
+      </div>
+      <div class="col-sm-2">      
+        <%= form_tag "/carted_items/#{carted_item.id}", method: :patch do %>
+          <%= label_tag :quantity %>
+          <%= text_field_tag :quantity, carted_item.quantity, size: "8" %>
+          <%= submit_tag "Update", class: "btn btn-default see-thru", style: "display: inline" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
   
-  <div class="col-sm-8 col-sm-offset-2" style="text-align: right">
-    <h2>Total: <span id="cart"><%= number_to_currency(@total) %></span></h2>
-    <button onclick="calculateTip()">test</button>
-    <%= link_to "Buy Now", "/orders", method: :patch, class: "btn btn-default"%>
+  <div class="col-sm-8 col-sm-offset-2" style="text-align: right; margin-bottom: 50px;">
+    <h2 id="cart"><%= @total %></h2>
+      <h2>Total: <span id="showTotal"><%= number_to_currency(@total) %></span></h2>
+      <select id="tip">
+        <option disabled selected value="0">
+        <option value="">None</option>
+        <option value=".1">10%</option>
+        <option value=".15">15%</option>
+        <option value=".2">20%</option>
+      </select>  
+      <p>* Select Tip Amount</p>
+    <button id="go" onclick="calculateTip()" class="btn btn-default see-thru">Update Total</button>
   </div>
 </div>
+
+

@@ -53,7 +53,7 @@ div.show-well h3{
 
 .navbar-default .navbar-brand {
   color: white;
-  font-size: 3.2em;
+  font-size: 3.7em;
   font-family: snell roundhand;
   font: snellroundhand-bold;
   font-weight: bold;
@@ -61,11 +61,19 @@ div.show-well h3{
   text-shadow: 2px 2px #000;
 }
 
+#grad1 {
+  height: 200px;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0));
+  }
+
 .navbar-default .navbar-nav li a {
   color: white;
   background:transparent;
   border: transparent;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -96,4 +104,6 @@ div.show-well h3{
   text-shadow: 2px 2px #000;
 }
 
-
+#cart{
+  display: none;
+}

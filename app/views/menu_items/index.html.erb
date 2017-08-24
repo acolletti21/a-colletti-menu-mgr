@@ -19,7 +19,7 @@
             <h4><%= number_to_currency(item.price) %></h4>
               <%= form_tag "/carted_items", method: :post do%>
                 <%= label_tag :quantity, "qty" %>
-                <%= text_field_tag :quantity, "", size: "3" %>
+                <%= text_field_tag :quantity, "", size: "8" %>
                 <%= hidden_field_tag :menu_item_id, item.id %>
               <%= submit_tag "Add to Cart", class: "btn btn-default see-thru" %>
             <% end %>
@@ -28,7 +28,7 @@
       </div>
     <% end %>
   <% end %>
-  <div class="col-sm-12 col-lg-6">
+  <div class="col-sm-6">
     <%= form_tag "/carted_items/random", method: :get do %>
       <%= text_field_tag :min, nil, class: "col-md-3 col-md-offset-1", placeholder: "minimum" %>
       <%= text_field_tag :max, nil, class: "col-md-3 col-md-offset-1", placeholder: "maximum" %>

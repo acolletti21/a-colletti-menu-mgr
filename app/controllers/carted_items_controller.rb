@@ -36,7 +36,9 @@ class CartedItemsController < ApplicationController
 
   def update
     @carted_item = CartedItem.find(params[:id])
-    @carted_item.update!(params[:quantity])
+    @carted_item.update!(
+                          quantity: params[:quantity]
+                          )
     if @carted_item.save
       flash[:success] = "Quantity Successfully Updated."
       redirect_to "/carted_items"
