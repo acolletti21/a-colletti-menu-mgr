@@ -1,33 +1,57 @@
-// Place all the styles related to the menu_items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.menu-item {
-  margin: 1%;
-  padding: 1%;
-  border-radius: 5px;
+
+p {
+  color: rgb(227, 248, 253);
+}
+ 
+h2 {
+  color: rgb(227, 248, 253);
+}
+ 
+h1, h3, h4, a, label {
+  color: white;
+  text-shadow: 1px 1px #000;
+}
+ 
+.category {
+  font-size: 3.2em;
+  // font-family: optima;
+  // font: optima-extrablack;
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 3px #000;
+  margin-top: 8%;
+  margin-bottom: 3%;
 }
 
+.category-bg {
+  background-color: rgba(51, 23, 17, 0.65);
+}
+
+.checkout-border {
+  border-color: rgb(227, 248, 253);
+  // border-color: #b3ddf2;
+  border-style: solid; 
+  border-width: 45px;
+  margin-bottom: 5%;
+}
+ 
+.container {
+  margin-top: 60px;
+}
+ 
 .description {
   padding-top: 2%;
   font-size: 1.5em;
   text-shadow: 2px 2px #000;
 }
-
-p {
-  color: rgba(227, 248, 253, 0.9);
+ 
+.menu-item {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
 }
-
-h2 {
-  color: lightblue;
-  text-shadow: 1px 1px #000;
-}
-
-h1, h3, h4, a, label {
-  color: white;
-  text-shadow: 1px 1px #000;
-}
-
-.name{
+ 
+.name {
   padding-top: 1.5%;
   font-family: savoye let;
   font: savoyeletplain;
@@ -35,30 +59,12 @@ h1, h3, h4, a, label {
   font-size: 3em;
   text-shadow: 2px 2px #000;
 }
-
-.randomize {
-  overflow: auto; 
-  margin-top: 5%;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.show-well{
-  margin-top: 2%;
-  padding: 2%
-}
-
-div.show-well h3{
-  display: inline;
-  float: right;
-}
-
+ 
 .navbar-default {
   background:transparent;
   border: transparent;
 }
-
+ 
 .navbar-default .navbar-brand {
   color: white;
   font-size: 3.7em;
@@ -68,7 +74,52 @@ div.show-well h3{
   margin-top: 1%;
   text-shadow: 2px 2px #000;
 }
-
+ 
+.navbar-default .navbar-nav li a {
+  color: white;
+  background:transparent;
+  border: transparent;
+  font-size: 1.5em;
+}
+ 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background:transparent;
+}
+ 
+.randomize {
+  overflow: auto;
+  margin-top: 5%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 5px;
+}
+ 
+.see-thru {
+  background:transparent;
+  color: white;
+}
+ 
+.show-well {
+  margin-top: 2%;
+  padding: 2%
+}
+ 
+.star-bg {
+  background-image: image-url('/img/stars.svg'), image-url('/img/wood.jpg');
+  background-position: center top, center bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+}
+ 
+div.show-well h3 {
+  display: inline;
+  float: right;
+}
+ 
+#cart {
+  display: none;
+}
+ 
 #grad1 {
   height: 200px;
   background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
@@ -76,42 +127,3 @@ div.show-well h3{
   background: -moz-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1), rgba(0,0,0,0));
   }
-
-.navbar-default .navbar-nav li a {
-  color: white;
-  background:transparent;
-  border: transparent;
-  font-size: 1.5em;
-}
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background:transparent;
-}
-
-.container {
-  margin-top: 60px;
-}
-
-.see-thru {
-  background:transparent;
-  color: white;
-}
-
-.star-bg {
-  background-image: image-url('/img/stars.svg'), image-url('/img/wood.jpg'); 
-  background-position: center top, center bottom;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed;
-}
-
-.category {
-  font-size: 3.2em;
-  font-family: optima;
-  font: optima-extrablack;
-  font-weight: bold;
-  text-shadow: 2px 2px #000;
-}
-
-#cart{
-  display: none;
-}

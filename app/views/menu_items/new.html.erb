@@ -4,10 +4,10 @@
         <h2><%= error%></h2>
       <%end%>
 
-      <h2 style="text-align: center">Add a new item to the menu</h2>
+      <h1 style="text-align: center">Add a new item to the menu</h1>
     </div>
 
-    <div class="col-sm-8 col-sm-offset-2 show-well">
+    <div class="col-sm-8 col-sm-offset-2 show-well category-bg">
       <%= form_for @menu_item do |f| %>
         <div class="form-group">
           <%= f.label :name %>
@@ -28,10 +28,11 @@
         <div class="form-group">
           <%= f.collection_select :category_id, Category.all, :id, :name %>
           <%= hidden_field_tag :menu_item_id, @menu_item.id %>
+          <%= f.label :category %>
         </div>
       <% end %>
         <br>
-        <input type="submit" value="Add Item">
+        <input type="submit" value="Add Item" class="btn btn-default see-thru">
       <% end %>
      </div>   
     </div>
