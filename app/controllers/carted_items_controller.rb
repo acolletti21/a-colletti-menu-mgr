@@ -13,7 +13,9 @@ class CartedItemsController < ApplicationController
   def show
     if params[:id] == "random"
       menu_item = MenuItem.all.sample
-      menu_item.lucky_order(7,15)
+      min = params[:min]
+      max = params[:max]
+      menu_item.lucky_order(min,max)
       redirect_to "/carted_items"
     else 
       redirect_to '/carted_items'

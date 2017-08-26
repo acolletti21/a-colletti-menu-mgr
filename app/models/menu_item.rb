@@ -8,6 +8,8 @@ class MenuItem < ApplicationRecord
     total = 0
     @carted_items = CartedItem.all.where(status: "carted")
     @carted_items.destroy_all 
+    max = max.to_i
+    min = min.to_i
     until total > min && total < max do
       rand_item = MenuItem.all.sample
       if (rand_item[:price] + total) < max

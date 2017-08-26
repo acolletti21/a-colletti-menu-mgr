@@ -10,11 +10,11 @@
     <h4>Can't decide what to order? Set your price range to add a random order to your cart.</h4>
      <%= form_tag "/carted_items/random", method: :get do %>
        <div class="form-group">
-         <label for="usr">Minimum</label>
+         <label for="min">Minimum</label>
          <%= text_field_tag :min, "", size: "8", style: "float: right" %>
        </div>
        <div class="form-group">
-         <label for="usr">Maximum</label>
+         <label for="max">Maximum</label>
          <%= text_field_tag :max, "", size: "8", style: "float: right" %>
        </div>
        <div class="form-group">
