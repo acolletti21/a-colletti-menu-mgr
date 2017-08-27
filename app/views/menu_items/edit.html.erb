@@ -1,11 +1,12 @@
 
  <div class="col-md-8 col-sm-offset-2">
-  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.85"> 
+  <div class="col-md-8 col-sm-offset-2" style="margin-top: 10%"> 
     <% @menu_item.errors.full_messages.each do |error| %> 
       <h2><%= error%></h2>
     <%end%>
 
     <h2>Edit Item</h2>
+    <a style="float: right; font-size: 1.5em" href="/menu_items/#{@menu_item.id}"><span class="glyphicon glyphicon-arrow-left"></span> Back To View Item</a>
 
     <%= form_for(@menu_item, url: "/menu_items/#{@menu_item.id}") do |f| %>
       <div class="form-group">

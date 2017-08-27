@@ -1,7 +1,6 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    # .order(category: :desc, price: :asc)
     @categories = Category.all
   end
 
@@ -17,8 +16,8 @@ class MenuItemsController < ApplicationController
       flash[:success] = "Menu Item Successfully Created"
       redirect_to "/menu_items/#{@menu_item.id}"
     else
-      flash[:warning] = "Item failed to save, please try again."
-      redirect_to "/"
+      flash[:warning] = "Item failed to save, please try again. #{@menu_item.errors.full_messages.join(', ')}."
+      redirect_to '/menu_items/new'
     end
   end
 
@@ -44,7 +43,7 @@ class MenuItemsController < ApplicationController
       redirect_to "/menu_items/#{@menu_item.id}"
     else
       flash[:warning] = "Item failed to save, please try again."
-      redirect_to "/"
+      redirect_to "/menu_items/#{@menu_item.id}/edit"
     end
   end
 
@@ -54,6 +53,11 @@ class MenuItemsController < ApplicationController
     redirect_to "/"
     flash[:warning] = "Menu Item has been destroyed"
     redirect_to = "/"
+  end
+
+  def redirect_bad_url
+    redirect_to '/'
+    flash[:warning] = "The page you requested cannot be found"
   end
 
   private

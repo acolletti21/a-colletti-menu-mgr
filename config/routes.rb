@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   delete '/carted_items/:id' => 'carted_items#destroy'
 
   get '/carted_items/:id' => 'carted_items#show'
+
+  # get "*path" => redirect('/')
+  get '*a', :to => 'menu_items#redirect_bad_url'
 end

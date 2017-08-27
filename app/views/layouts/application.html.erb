@@ -35,16 +35,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           
-       
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">Menu</a></li>
+            <li><a href="/menu_items/new">New Item</a></li>
+          </ul>
 
           <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "<span class='glyphicon glyphicon-shopping-cart'></span> Cart (#{@cart_count})".html_safe, "/carted_items", method: :get %></li>
 
             <li class="dropdown">
-              <li><a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Menu<span class="caret"></span></a>
+              <li><a href class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
               <ul class="dropdown-menu see-thru">
-                  <li><a href="/menu_items/new">Create New Item</a></li>
+                  <li><a href="/">View Menu</a></li>
                   <li><a href="/carted_items">View Cart</a></li>
+                  <li><a href="/menu_items/new">Create New Item</a></li>
               </ul>
             </li>
           </ul>
