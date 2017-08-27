@@ -14,12 +14,10 @@ h1, h3, h4, a, label {
  
 .category {
   font-size: 3.2em;
-  // font-family: optima;
-  // font: optima-extrablack;
   font-family: Helvetica,Arial,sans-serif;
   font-weight: bold;
   text-shadow: 2px 3px #000;
-  margin-top: 8%;
+  margin-top: 5%;
   margin-bottom: 3%;
 }
 
@@ -29,7 +27,6 @@ h1, h3, h4, a, label {
 
 .checkout-border {
   border-color: rgb(227, 248, 253);
-  // border-color: #b3ddf2;
   border-style: solid; 
   border-width: 45px;
   margin-bottom: 5%;
@@ -48,6 +45,13 @@ h1, h3, h4, a, label {
 .menu-item {
   margin: 1%;
   padding: 1%;
+  border-radius: 5px;
+}
+
+.menu-pic {
+  margin: 10px 5px;
+  display: inline;
+  width: 350px;
   border-radius: 5px;
 }
  
@@ -89,9 +93,9 @@ h1, h3, h4, a, label {
 .randomize {
   overflow: auto;
   margin-top: 5%;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px;
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 15px;
+  // border-radius: 5px;
 }
  
 .see-thru {

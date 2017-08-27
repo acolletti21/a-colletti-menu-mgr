@@ -2,28 +2,29 @@
 
 <div class="container">
 
-  <div class="col-sm-12 randomize" style="margin-bottom: 2%; margin-top: 10%">
+  <div class="col-sm-12 randomize" style="margin-bottom: 3%; margin-top: 10%">
     <div class="col-sm-9">
-      <img src="/img/pizza.jpg">
+      <img src="/img/malort.png" class="menu-pic"> &nbsp; &nbsp; &nbsp;
+      <img src="/img/pizza.jpg" class="menu-pic">
     </div>
     <div class="col-sm-3">
-    <h4>Can't decide what to order? Set your price range to add a random order to your cart.</h4>
-     <%= form_tag "/carted_items/random", method: :get do %>
-       <div class="form-group">
-         <label for="min">Minimum</label>
-         <%= text_field_tag :min, "", size: "8", style: "float: right" %>
-       </div>
-       <div class="form-group">
-         <label for="max">Maximum</label>
-         <%= text_field_tag :max, "", size: "8", style: "float: right" %>
-       </div>
-       <div class="form-group">
-         <%= submit_tag "I'm Feeling Lucky"%>
-       </div>
-     <% end %>
+      <h4>Can't decide what to order? Set your price range to add a random order to your cart.</h4>
+      <%= form_tag "/carted_items/random", method: :get do %>
+      <div class="form-group">
+        <label for="min">Minimum</label>
+        <%= text_field_tag :min, "", size: "8", style: "float: right", type: "number" %>
+      </div>
+      <div class="form-group">
+        <label for="max">Maximum</label>
+        <%= text_field_tag :max, "", size: "8", style: "float: right", type: "number" %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag "I'm Feeling Lucky"%>
+      </div>
+      <% end %>
     </div>
   </div>
-  <br>
+  <br><br>
 
   <% @categories.each do |category| %>
     <h2 class="category"><%= category.name.upcase %></h2>
@@ -31,12 +32,12 @@
       <div class="row category-bg">
         <div class="col-sm-12 menu-item">
           <div class="col-sm-3 name">
-            <a href="menu_items/<%= item.id %>"><%= item.name %></a>
+            <a href="menu_items/<%= item.id %>"><%= item.name %>
           </div>
         
           <div class="col-sm-7 description">
             <p><%= item.description %></p>
-          </div>
+          </div></a>
         
           <div class="col-sm-2">
             <h4><%= number_to_currency(item.price) %></h4>
@@ -51,5 +52,6 @@
       </div>
     <% end %>
   <% end %>
+  <br><br>
 
 </div>

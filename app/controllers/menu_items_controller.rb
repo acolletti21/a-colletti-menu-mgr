@@ -42,7 +42,8 @@ class MenuItemsController < ApplicationController
       flash[:success] = "Menu Item Successfully Edited"
       redirect_to "/menu_items/#{@menu_item.id}"
     else
-      flash[:warning] = "Item failed to save, please try again."
+      flash[:warning] = "Item failed to save, please try again. #{@menu_item.errors.full_messages.join(', ')}."
+      @menu_item.assign_attributes(menu_item_category: [menu_item_id: params[:menu_item_id], category_id: params[:category_id]])
       redirect_to "/menu_items/#{@menu_item.id}/edit"
     end
   end

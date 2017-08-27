@@ -12,7 +12,9 @@ Menu Management Software that allows users to curate a menu, add items to a shop
 
 ### Installation
 
-`make database`
+`make install`
+
+`make seed`
 
 `make server`
 
